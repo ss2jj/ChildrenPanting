@@ -2,27 +2,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/beijing" >
+    android:background="@drawable/beijing"
+    android:orientation="vertical" >
 
-    <TextView android:textSize="20px"
-         android:id="@+id/blank"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_weight="1.8" />
-    <LinearLayout android:layout_gravity="center_horizontal" 
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:layout_weight="1.2">
-      <GridView
-        android:id="@+id/simplepainting_gridview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="80dp"
-        android:stretchMode="spacingWidthUniform"
-        android:numColumns="3" 
-         />
+        android:layout_height="50dip"
+        android:background="@color/white_55"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="简笔画"
+            android:textColor="@color/black" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/blank1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/white_55"
+        android:orientation="vertical" >
+
+        <TextView android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="初级难度"
+              android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <GridView
+            android:id="@+id/simplepainting_gridview_low"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="80dp"
+            android:numColumns="4"
+            android:stretchMode="spacingWidthUniform" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/blank2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/white_55"
+        android:orientation="vertical" >
+
+        <TextView android:textSize="20sp"
+              android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="中级难度"
+            android:textColor="@color/black" />
+
+        <GridView
+            android:id="@+id/simplepainting_gridview_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="80dp"
+            android:numColumns="4"
+            android:stretchMode="spacingWidthUniform" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/blank3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/white_55"
+        android:orientation="vertical" >
+
+        <TextView android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="高级难度"
+            android:textColor="@color/black" />
+
+        <GridView
+            android:id="@+id/simplepainting_gridview_high"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="80dp"
+            android:numColumns="4"
+            android:stretchMode="spacingWidthUniform" />
+    </LinearLayout>
 
 </LinearLayout>
