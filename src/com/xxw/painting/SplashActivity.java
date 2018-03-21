@@ -27,6 +27,7 @@ public class SplashActivity extends Activity {
 		    public void run() {    
 		    //execute the task 
 		    	SplashActivity.this.startActivity(new Intent(SplashActivity.this,MainActivity.class));	
+		    	SplashActivity.this.finish();
 		    }    
 		 }, 2000);
 	}

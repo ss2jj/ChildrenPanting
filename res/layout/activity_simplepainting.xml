@@ -2,24 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/beijing"
+
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:background="@color/white_55"
-        android:gravity="center"
-        android:orientation="horizontal" >
+       
+         >
+
+        <ImageButton android:id="@+id/back_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left"
+            android:layout_marginLeft="10dip"
+        	 android:layout_centerVertical="true"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:text="简笔画"
+            android:textSize="20sp"
+            android:layout_gravity="center"
             android:textColor="@color/black" />
-    </LinearLayout>
+			
+    </RelativeLayout>
 
     <View
         android:id="@+id/blank1"
