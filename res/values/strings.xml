@@ -4,5 +4,19 @@
     <string name="app_name">小儿学画</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-	 <string name="shuoming">简笔画可以通过简单的点线面</string>
+    <string name="shuoming">简笔画可以通过简单的点线面</string>
+    <string name="dialog_title_color_picker">xxx</string>
+    <string name="message_saved_success">保存成功</string>
+    <string name="message_choose_send">lll</string>
+    <string name="message_saved_failed">保存失败</string>
+    <string name="message_save_file_title">保存文件</string>
+    <string name="message_save_file_prompt">确认保存</string>
+    <string name="button_positive">确认</string>
+    <string name="button_negative">取消</string>
+    <string name="dialog_title_stroke_width">笔画宽度</string>
+    <string name="button_yes">是</string>
+    <string name="button_no">否</string>
+    <string name="menu_save">保存</string>
+    <string name="menu_send">发送</string>
+
 </resources>
