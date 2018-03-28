@@ -24,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -345,8 +347,10 @@ public class SimplePaintTeachActivity extends Activity  implements OnSeekBarChan
 		 super.onCreate(savedInstanceState);
 	        Intent intent = getIntent();
 	        int id = intent.getIntExtra("ID",0);
-	        this.imgEasyID = DataDao.icno[id];
+	        this.imgEasyID = DataDao.stepicno[id];
 	        this.exampleID = DataDao.icno[id];
+	        requestWindowFeature(Window.FEATURE_NO_TITLE);   
+			getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);  
 	        setContentView(R.layout.activity_simplepaintingteach);
 	        this.mView = (MyPaintView) findViewById(R.id.paint_view);
 	        this.mPaint = new Paint();
@@ -361,18 +365,18 @@ public class SimplePaintTeachActivity extends Activity  implements OnSeekBarChan
 	        this.mView.setToolMode(6);
 	        this.IMV = (ChangeView) findViewById(R.id.changeview);
 	        this.IMV.setImgEasyID(this.imgEasyID);
-	        this.IMV.setVisibility(0);
+	        this.IMV.setVisibility(View.VISIBLE);
 	        this.IMV.touchEasy(this.imgEasyID);
 	        this.IMV.setOnClickListener(new OnClickListener() {
 	            public void onClick(View v) {
-	            	SimplePaintTeachActivity.this.IMV.setVisibility(4);
-	            	SimplePaintTeachActivity.this.Example.setVisibility(0);
+	            	SimplePaintTeachActivity.this.IMV.setVisibility(View.INVISIBLE);
+	            	SimplePaintTeachActivity.this.Example.setVisibility(View.VISIBLE);
 	            }
 	        });
 	        this.Example = (ChangeView) findViewById(R.id.changedepict);
 	        this.Example.setImgDepictID(this.exampleID);
 	        this.Example.touchExample(this.exampleID);
-	        this.Example.setVisibility(4);
+	        this.Example.setVisibility(View.INVISIBLE);
 	        this.Example.setOnClickListener(new OnClickListener() {
 	            public void onClick(View v) {
 	            	SimplePaintTeachActivity.this.IMV.setVisibility(0);
@@ -393,7 +397,7 @@ public class SimplePaintTeachActivity extends Activity  implements OnSeekBarChan
 	            	SimplePaintTeachActivity.this.mView.setToolMode(2);
 	            }
 	        }, new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.way.addItem("直线", R.drawable.line, new OnClickListener() {
+	        this.way.addItem("直线", R.drawable.lines, new OnClickListener() {
 	            public void onClick(View v) {
 	            	SimplePaintTeachActivity.this.setLastColor(SimplePaintTeachActivity.this.mSavedColor);
 	            	SimplePaintTeachActivity.this.mView.setToolMode(3);
@@ -411,9 +415,9 @@ public class SimplePaintTeachActivity extends Activity  implements OnSeekBarChan
 	            	SimplePaintTeachActivity.this.mView.setToolMode(4);
 	            }
 	        }, new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.way.setVisibility(8);
-	        this.tv.addItem("笔刷", R.drawable.byhand, new HandClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.tv.addItem("工具", R.drawable.way, new WayClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
+	        this.way.setVisibility(View.GONE);
+	        this.tv.addItem("笔刷", R.drawable.brush, new HandClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
+	        this.tv.addItem("工具", R.drawable.tools, new WayClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
 	        this.tv.addItem("宽度", R.drawable.width, new StrokeWidthClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
 	        this.tv.addItem("颜色", R.drawable.color, new OnClickListener() {
 	            public void onClick(View v) {
@@ -421,10 +425,10 @@ public class SimplePaintTeachActivity extends Activity  implements OnSeekBarChan
 	                SimplePaintTeachActivity.this.lastColor(SimplePaintTeachActivity.this.mPaint.getColor());
 	            }
 	        }, new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.tv.addItem("撤消", R.drawable.left, new UndoClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.tv.addItem("恢复", R.drawable.right, new DoClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
+	        this.tv.addItem("撤消", R.drawable.undo, new UndoClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
+	        this.tv.addItem("恢复", R.drawable.redo, new DoClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
 	        this.tv.addItem("清屏", R.drawable.clear, new ClearClick(), new RoundRectDrawable(Color.argb(255, 43, 137, 219), Color.argb(255, 29, 107, 192), Color.argb(255, 30, 107, 192), Color.argb(255, 57, 157, 225), 0.5f), null);
-	        this.tv.setVisibility(0);
+	        this.tv.setVisibility(View.VISIBLE);
 	        EmbossMaskFilter embossMaskFilter = new EmbossMaskFilter(new float[]{1.0f, 1.0f, 1.0f}, 0.1f, 8.0f, 5.0f);
 	        BlurMaskFilter blurMaskFilter = new BlurMaskFilter(8.0f, Blur.NORMAL);
 	        blurMaskFilter = new BlurMaskFilter(8.0f, Blur.OUTER);

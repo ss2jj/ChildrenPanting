@@ -1,6 +1,6 @@
 package com.xxw.painting.views;
 
-import com.xxw.painting.widgets.ImageAndTextButton;
+import com.xxw.painting.widgets.ImageAndTextButtonVertial;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -23,7 +23,7 @@ public class ToolView extends LinearLayout {
     }
 
     public void addItem(String item, int imgres, OnClickListener clicklistener, Drawable hbg, Drawable bg) {
-        ImageAndTextButton btn = new ImageAndTextButton(this.mContext, imgres, item);
+    	ImageAndTextButtonVertial btn = new ImageAndTextButtonVertial(this.mContext, imgres, item);
         addView(btn, new LayoutParams(-2, -2, 1.0f));
         btn.setOnClickListener(clicklistener);
         btn.setBackground(hbg, bg);

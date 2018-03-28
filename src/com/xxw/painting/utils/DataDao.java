@@ -10,4 +10,7 @@ public class DataDao {
     //图标下的文字
     public static String name[]={"热气球","小猫","螃蟹","青蛙","兔子","蜗牛","火鸡","直升机","章鱼"};
 
+    public static int stepicno[] = { R.drawable.ballonx, R.drawable.catx, R.drawable.crabx,
+            R.drawable.frogx, R.drawable.rabbitx, R.drawable.snailx, R.drawable.turkeyx,
+            R.drawable.zhishengjix, R.drawable.zyx};
 }
