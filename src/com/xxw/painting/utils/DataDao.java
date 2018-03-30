@@ -13,4 +13,6 @@ public class DataDao {
     public static int stepicno[] = { R.drawable.ballonx, R.drawable.catx, R.drawable.crabx,
             R.drawable.frogx, R.drawable.rabbitx, R.drawable.snailx, R.drawable.turkeyx,
             R.drawable.zhishengjix, R.drawable.zyx};
+    
+    
 }

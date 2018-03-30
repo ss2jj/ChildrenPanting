@@ -23,6 +23,9 @@ public class MainActivity extends Activity {
 	            intent.setClass(LittleAnim.this, ColorDraw.class);
 	            LittleAnim.this.startActivity(intent);
 	            LittleAnim.this.overridePendingTransition(R.anim.fade, R.anim.fade);*/
+	        	  Intent intent = new Intent();
+		          intent.setClass(MainActivity.this, ColorPaintActivity.class);
+		          MainActivity.this.startActivity(intent);
 	        }
 	    }
 
